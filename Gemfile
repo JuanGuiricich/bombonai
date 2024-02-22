@@ -71,10 +71,10 @@ group :test do
 
 end
 
-# Devise for authentication
 gem "devise"
 
-# rspec for testing
 group :development, :test do
   gem 'rspec-rails'
 end
+
+gem 'httparty'
