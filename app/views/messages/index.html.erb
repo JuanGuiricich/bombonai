@@ -1,0 +1,11 @@
+<%= form_with model: @message, local: false do |form| %>
+  <div>
+  <%= form.hidden_field :user_name, value: current_user.username %>
+  <%= form.text_area :content %>
+  <%= form.submit "Send" %>
+<% end %>
+
+<h2>Messages</h2>
+<div id="messages">
+  <%= render @messages %>
+</div>
