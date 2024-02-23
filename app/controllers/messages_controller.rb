@@ -1,3 +1,4 @@
+
 class MessagesController < ApplicationController
 
   before_action :authenticate_user!
@@ -8,8 +9,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = current_user.messages.build(message_params)
+    @message = current_user.messages.build(message_params.merge(is_user_message: true))
+
     if @message.save
+      broadcast_user_message(@message)
+      SendMessageJob.perform_later(current_user.id, @message.content)
       respond_to do |format|
         format.turbo_stream
         format.html { redirect_to messages_path, notice: 'Message sent!' }
@@ -21,7 +25,14 @@ class MessagesController < ApplicationController
 
   private
 
+  def broadcast_user_message(message)
+    Turbo::StreamsChannel.broadcast_append_to "messages_#{message.user_id}",
+                                             target: "messages_#{message.user_id}",
+                                             partial: "messages/message",
+                                             locals: { message: message }
+  end
+
   def message_params
-    params.require(:message).permit(:user_name, :content)
+    params.require(:message).permit(:content)
   end
 end

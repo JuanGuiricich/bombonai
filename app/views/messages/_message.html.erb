@@ -1,4 +1,8 @@
-<p>
-  <strong><%= message.user_name %>:</strong>
+<div id="<%= dom_id(message) %>">
+  <% if message.is_user_message %>
+    <strong>You:</strong>
+  <% else %>
+    <strong>AI:</strong>
+  <% end %>
   <%= message.content %>
-</p>
+</div>
