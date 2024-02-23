@@ -6,6 +6,10 @@
 <% end %>
 
 <h2>Messages</h2>
-<div id="messages">
+<%= turbo_stream_from "messages_#{current_user.id}" %>
+
+<div id="messages_<%= current_user.id %>">
   <%= render @messages %>
 </div>
+
+<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
