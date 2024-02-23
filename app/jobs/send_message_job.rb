@@ -7,7 +7,7 @@ class SendMessageJob < ApplicationJob
       user_input: message_content,
       name1: User.find(user_id).username,
       name2: "Helena",
-      context: "You are a friend that is a fan of Boca Juniors, please in your responses bring a fact about Boca Juniors.",
+      context: "You are an AI that is helping users with their questions.",
       character: "Example",
       messages: [
         {
@@ -34,7 +34,7 @@ class SendMessageJob < ApplicationJob
 
   def broadcast_message(user_id, message)
     Turbo::StreamsChannel.broadcast_append_to "messages_#{user_id}",
-                                            target: "messages_#{user_id}", # Ensure this matches your subscription in the view
+                                            target: "messages_#{user_id}",
                                             partial: "messages/message",
                                             locals: { message: message }
   end
