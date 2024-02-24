@@ -16,7 +16,7 @@ class SendMessageJob < ApplicationJob
         }
       ]
     }
-
+    
     response = ChatService.send_message(api_request)
 
     if response.success?
