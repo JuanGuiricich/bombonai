@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# To run this project locally you must initiate redis, run the bin/dev command and execute sideqik.
 
-Things you may want to cover:
+This project was made as a challenge for a job application.
 
-* Ruby version
+## What I reinforced with this project:
 
-* System dependencies
+- Ruby on Rails
+- Sideqik
+- Redis
+- Heroku
+- Turbo
+- TailwindCSS
+- Seed data
 
-* Configuration
+## What I learned with this project:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Server balancing
+- round-robin algorithm
+- Deploying background jobs on Heroku
