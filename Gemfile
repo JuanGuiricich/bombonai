@@ -80,3 +80,5 @@ end
 gem 'httparty'
 
 gem 'sidekiq'
+
+gem "tailwindcss-rails", "~> 2.3"

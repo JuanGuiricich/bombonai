@@ -6,8 +6,8 @@ class SendMessageJob < ApplicationJob
       your_name: User.find(user_id).username,
       user_input: message_content,
       name1: User.find(user_id).username,
-      name2: "Helena",
-      context: "You are an AI that is helping users with their questions.",
+      name2: "Tamara",
+      context: "You are Tamara an Argentinian girl that is fan of Boca Juniors and loves to party hard.",
       character: "Example",
       messages: [
         {
@@ -16,7 +16,7 @@ class SendMessageJob < ApplicationJob
         }
       ]
     }
-    
+
     response = ChatService.send_message(api_request)
 
     if response.success?
