@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: 'home#index'
   resources :messages, only: [:index, :create]
+  resources :profiles, only: [:index]
 end

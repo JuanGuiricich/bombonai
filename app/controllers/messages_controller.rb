@@ -32,6 +32,8 @@ class MessagesController < ApplicationController
                                              locals: { message: message }
   end
 
+  private
+
   def message_params
     params.require(:message).permit(:content)
   end

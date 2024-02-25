@@ -82,3 +82,8 @@ gem 'httparty'
 gem 'sidekiq'
 
 gem "tailwindcss-rails", "~> 2.3"
+
+gem 'faker'
+
+gem 'kaminari'
+
