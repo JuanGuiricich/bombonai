@@ -1,6 +1,6 @@
 # README
 
-# To run this project locally you must initiate redis, run the bin/dev command and execute sideqik.
+To run this project locally you must initiate redis, run the bin/dev command and execute sideqik.
 
 This project was made as a challenge for a job application.
 
